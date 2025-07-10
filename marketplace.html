@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>XPORTA - Marketplace</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Link to our main app script -->
+    <script src="app.js" defer></script>
+</head>
+<body class="bg-[var(--color-bg-primary)] text-[var(--color-text-primary)] flex flex-col min-h-screen">
+
+    <!-- Header will be injected here by app.js -->
+    <div id="main-header"></div>
+
+    <!-- Main Content -->
+    <main class="container mx-auto p-6 md:p-8 flex-grow">
+        <div class="max-w-7xl mx-auto">
+             <a href="dashboard.html" class="text-[var(--color-accent)] hover:text-[var(--color-accent-hover)] text-sm inline-flex items-center mb-4">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-1" viewBox="0 0 20 20" fill="currentColor">
+                  <path fill-rule="evenodd" d="M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z" clip-rule="evenodd" />
+                </svg>
+                Volver al Panel de Control
+            </a>
+            <h2 class="text-3xl md:text-4xl font-bold text-[var(--color-text-primary)] text-center">Marketplace XPORTA</h2>
+            <p class="text-[var(--color-text-secondary)] text-center mt-2 mb-8">Descubre productos mexicanos de alta calidad, listos para el mercado internacional.</p>
+
+            <!-- Search and Filter Bar -->
+            <div class="bg-[var(--color-bg-secondary)] border border-[var(--color-border)] rounded-lg p-4 mb-8 flex flex-col md:flex-row gap-4 items-center sticky top-20 z-30">
+                <div class="relative flex-grow w-full">
+                    <div class="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3">
+                        <svg class="h-5 w-5 text-gray-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z" clip-rule="evenodd" /></svg>
+                    </div>
+                    <input type="text" id="search-input" placeholder="Buscar producto (ej. café, mole, tequila)..." class="form-input pl-10 w-full">
+                </div>
+                <select id="category-filter" class="form-select w-full md:w-auto">
+                    <option value="all">Todas las categorías</option>
+                    <option value="alimentos">Alimentos y Bebidas</option>
+                    <option value="artesanias">Artesanías</option>
+                    <option value="textiles">Ropa y Textiles</option>
+                </select>
+                <select id="origin-filter" class="form-select w-full md:w-auto">
+                    <option value="all">Todos los orígenes</option>
+                    <option value="oaxaca">Oaxaca</option>
+                    <option value="jalisco">Jalisco</option>
+                    <option value="chiapas">Chiapas</option>
+                </select>
+            </div>
+
+            <!-- Product Grid -->
+            <div id="product-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+                
+                <!-- Product Card 1: Mole -->
+                <div class="product-card bg-[var(--color-bg-secondary)] border border-[var(--color-border)] rounded-lg shadow-lg flex flex-col overflow-hidden transition-all hover:border-[var(--color-accent)] hover:shadow-2xl" data-category="alimentos" data-origin="oaxaca" data-name="Mole Negro Oaxaqueño">
+                    <img src="https://placehold.co/600x400/F97316/FFFFFF?text=Mole" alt="Imagen de Mole Negro Oaxaqueño" class="w-full h-48 object-cover">
+                    <div class="p-4 flex flex-col flex-grow">
+                        <span class="text-xs font-semibold text-orange-400 mb-1">Alimentos y Bebidas</span>
+                        <h3 class="text-lg font-bold text-[var(--color-text-primary)] flex-grow">Mole Negro Oaxaqueño</h3>
+                        <p class="text-sm text-[var(--color-text-secondary)] mt-1">por "Sabores de Oaxaca"</p>
+                        <p class="text-xs text-[var(--color-text-muted)]">Oaxaca, México</p>
+                        <a href="producto.html" class="w-full text-center mt-4 bg-[var(--color-accent)] text-white font-semibold py-2 px-4 rounded-lg text-sm hover:bg-[var(--color-accent-hover)] transition-colors">Ver Detalles</a>
+                    </div>
+                </div>
+
+                <!-- Product Card 2: Café -->
+                <div class="product-card bg-[var(--color-bg-secondary)] border border-[var(--color-border)] rounded-lg shadow-lg flex flex-col overflow-hidden transition-all hover:border-[var(--color-accent)] hover:shadow-2xl" data-category="alimentos" data-origin="chiapas" data-name="Café Orgánico de Altura">
+                    <img src="https://placehold.co/600x400/4B5563/FFFFFF?text=Café" alt="Imagen de Café Orgánico de Altura" class="w-full h-48 object-cover">
+                    <div class="p-4 flex flex-col flex-grow">
+                        <span class="text-xs font-semibold text-orange-400 mb-1">Alimentos y Bebidas</span>
+                        <h3 class="text-lg font-bold text-[var(--color-text-primary)] flex-grow">Café Orgánico de Altura</h3>
+                        <p class="text-sm text-[var(--color-text-secondary)] mt-1">por "Finca Las Nubes"</p>
+                        <p class="text-xs text-[var(--color-text-muted)]">Chiapas, México</p>
+                        <a href="producto.html" class="w-full text-center mt-4 bg-[var(--color-accent)] text-white font-semibold py-2 px-4 rounded-lg text-sm hover:bg-[var(--color-accent-hover)] transition-colors">Ver Detalles</a>
+                    </div>
+                </div>
+
+                <!-- Product Card 3: Alebrije -->
+                <div class="product-card bg-[var(--color-bg-secondary)] border border-[var(--color-border)] rounded-lg shadow-lg flex flex-col overflow-hidden transition-all hover:border-[var(--color-accent)] hover:shadow-2xl" data-category="artesanias" data-origin="oaxaca" data-name="Alebrije de Copal Tallado a Mano">
+                    <img src="https://placehold.co/600x400/10B981/FFFFFF?text=Alebrije" alt="Imagen de Alebrije de Copal" class="w-full h-48 object-cover">
+                    <div class="p-4 flex flex-col flex-grow">
+                        <span class="text-xs font-semibold text-green-400 mb-1">Artesanías</span>
+                        <h3 class="text-lg font-bold text-[var(--color-text-primary)] flex-grow">Alebrije de Copal Tallado a Mano</h3>
+                        <p class="text-sm text-[var(--color-text-secondary)] mt-1">por "Manos Mágicas Colectivo"</p>
+                        <p class="text-xs text-[var(--color-text-muted)]">Oaxaca, México</p>
+                        <a href="producto.html" class="w-full text-center mt-4 bg-[var(--color-accent)] text-white font-semibold py-2 px-4 rounded-lg text-sm hover:bg-[var(--color-accent-hover)] transition-colors">Ver Detalles</a>
+                    </div>
+                </div>
+
+                <!-- Product Card 4: Tequila -->
+                <div class="product-card bg-[var(--color-bg-secondary)] border border-[var(--color-border)] rounded-lg shadow-lg flex flex-col overflow-hidden transition-all hover:border-[var(--color-accent)] hover:shadow-2xl" data-category="alimentos" data-origin="jalisco" data-name="Tequila Añejo Cristalino">
+                    <img src="https://placehold.co/600x400/3B82F6/FFFFFF?text=Tequila" alt="Imagen de Tequila Añejo" class="w-full h-48 object-cover">
+                    <div class="p-4 flex flex-col flex-grow">
+                        <span class="text-xs font-semibold text-orange-400 mb-1">Alimentos y Bebidas</span>
+                        <h3 class="text-lg font-bold text-[var(--color-text-primary)] flex-grow">Tequila Añejo Cristalino</h3>
+                        <p class="text-sm text-[var(--color-text-secondary)] mt-1">por "Destilería El Agave Azul"</p>
+                        <p class="text-xs text-[var(--color-text-muted)]">Jalisco, México</p>
+                        <a href="producto.html" class="w-full text-center mt-4 bg-[var(--color-accent)] text-white font-semibold py-2 px-4 rounded-lg text-sm hover:bg-[var(--color-accent-hover)] transition-colors">Ver Detalles</a>
+                    </div>
+                </div>
+
+            </div>
+            
+            <!-- No results message (hidden by default) -->
+            <div id="no-results" class="hidden text-center py-16">
+                <p class="text-lg text-[var(--color-text-secondary)]">No se encontraron productos que coincidan con tu búsqueda.</p>
+            </div>
+
+        </div>
+    </main>
+
+    <!-- Footer will be injected here by app.js -->
+    <div id="main-footer"></div>
+
+    <script src="marketplace.js"></script>
+</body>
+</html>

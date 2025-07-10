@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>XPORTA - Estatus del Prototipo</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <!--
+    PLANNING & JUSTIFICATION SUMMARY
+
+    NARRATIVE PLAN:
+    The infographic serves as a comprehensive status report on the prototype.
+    1.  Introduction: A clear title and summary of the prototype's current state.
+    2.  Call to Action: A new, prominent button to explore the live prototype.
+    3.  High-Level Progress: Progress bars visually separating the completed Front-End from the pending Back-End and Mobile App development.
+    4.  Prototype Architecture: A flow diagram showing how all the created HTML pages are interconnected, demonstrating the prototype's navigability.
+    5.  Module Status Breakdown: A detailed grid where each card represents a module, outlining its completed features, current connection method, and what's needed on the back-end.
+    6.  The Path to a Full App: A diagram contrasting the current prototype architecture with the final, production-ready architecture.
+    7.  Conclusion: A clear call to action for the next phase.
+
+    VISUALIZATION CHOICES (NO SVG / NO MERMAID JS CONFIRMED):
+    -   Overall Progress:
+        -   Goal: Inform/Compare.
+        -   Visualization: HTML/CSS Progress Bars. This is the most effective way to show percentage completion.
+    -   Prototype Architecture:
+        -   Goal: Organize/Process.
+        -   Visualization: Flow Diagram (HTML/CSS using flexbox and borders). This is the required method for showing process flow.
+    -   Module Status Breakdown:
+        -   Goal: Organize/Inform.
+        -   Visualization: HTML/CSS Cards in a grid with Unicode icons and color-coded status tags.
+    -   Path to Full App:
+        -   Goal: Compare/Organize.
+        -   Visualization: A two-part diagram using styled HTML/CSS.
+
+    COLOR PALETTE:
+    -   Name: XPORTA Brand Palette.
+    -   HEX Codes: Dark theme uses #111827 and #1F2937 as backgrounds. Accent color is #F97316 (Orange). Text is primarily #F9FAFB. Status colors (green, orange) are used for clarity.
+    -->
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #111827;
+            color: #F9FAFB;
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <div class="max-w-6xl mx-auto p-4 sm:p-8">
+
+        <!-- Header -->
+        <header class="text-center mb-12 border-b-2 border-orange-500 pb-8">
+            <h1 class="text-3xl md:text-5xl font-extrabold text-white">
+                <span class="text-orange-500 font-black text-4xl md:text-6xl">X</span>PORTA
+            </h1>
+            <p class="mt-4 text-xl md:text-2xl font-semibold text-gray-200">Estatus del Prototipo: De la Visión a la Realidad Funcional</p>
+        </header>
+
+        <!-- Call to Action Button -->
+        <section class="text-center mb-16">
+            <a href="login.html" class="inline-block bg-orange-500 text-white font-bold text-lg py-3 px-8 rounded-lg shadow-lg hover:bg-orange-600 transition-transform hover:scale-105 focus:outline-none focus:ring-4 focus:ring-orange-500/50">
+                Explorar el Prototipo Interactivo →
+            </a>
+        </section>
+
+        <!-- Section 1: Overall Progress -->
+        <section class="mb-20">
+            <h2 class="text-3xl font-bold text-center text-orange-400 mb-8">Progreso General del Proyecto</h2>
+            <div class="bg-gray-800 rounded-2xl shadow-2xl p-8 space-y-6">
+                <div>
+                    <div class="flex justify-between mb-1"><span class="text-base font-medium text-white">1. Prototipo Front-End Interactivo</span><span class="text-sm font-medium text-white">100%</span></div>
+                    <div class="w-full bg-gray-700 rounded-full h-4"><div class="bg-green-500 h-4 rounded-full" style="width: 100%"></div></div>
+                </div>
+                <div>
+                    <div class="flex justify-between mb-1"><span class="text-base font-medium text-white">2. Desarrollo Back-End (Lógica y Base de Datos)</span><span class="text-sm font-medium text-white">0%</span></div>
+                    <div class="w-full bg-gray-700 rounded-full h-4"><div class="bg-orange-500 h-4 rounded-full" style="width: 0%"></div></div>
+                </div>
+                <div>
+                    <div class="flex justify-between mb-1"><span class="text-base font-medium text-white">3. Aplicación Móvil Nativa</span><span class="text-sm font-medium text-white">0%</span></div>
+                    <div class="w-full bg-gray-700 rounded-full h-4"><div class="bg-orange-500 h-4 rounded-full" style="width: 0%"></div></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 2: Prototype Architecture -->
+        <section class="mb-20">
+            <h2 class="text-3xl font-bold text-center text-orange-400 mb-8">Arquitectura del Prototipo Actual</h2>
+            <p class="max-w-3xl mx-auto text-center text-lg text-gray-300 mb-12">Hemos construido un ecosistema de páginas interconectadas que simulan el flujo completo del usuario, validando la navegación y la experiencia de la plataforma.</p>
+            <div class="bg-gray-800 rounded-2xl shadow-2xl p-8">
+                <div class="text-center">
+                    <div class="inline-block bg-orange-500 text-white font-bold p-3 rounded-lg">login.html</div>
+                    <div class="text-4xl my-2">↓</div>
+                    <div class="inline-block bg-orange-500 text-white font-bold p-3 rounded-lg">dashboard.html</div>
+                </div>
+                <div class="h-px w-1/2 bg-gray-600 mx-auto my-4"></div>
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-4 text-center text-sm">
+                    <div class="bg-gray-700 p-2 rounded-lg">index.html<br><span class="text-xs text-gray-400">(Diagnóstico)</span></div>
+                    <div class="bg-gray-700 p-2 rounded-lg">calculadora.html<br><span class="text-xs text-gray-400">(Costos)</span></div>
+                    <div class="bg-gray-700 p-2 rounded-lg">biblioteca.html<br><span class="text-xs text-gray-400">(Artículos)</span></div>
+                    <div class="bg-gray-700 p-2 rounded-lg">proveedores.html<br><span class="text-xs text-gray-400">(Directorio)</span></div>
+                    <div class="bg-gray-700 p-2 rounded-lg">ruta.html<br><span class="text-xs text-gray-400">(Checklist)</span></div>
+                    <div class="bg-gray-700 p-2 rounded-lg">marketplace.html<br><span class="text-xs text-gray-400">(Mercado)</span></div>
+                    <div class="bg-gray-700 p-2 rounded-lg">mis_productos.html<br><span class="text-xs text-gray-400">(Gestión)</span></div>
+                    <div class="bg-gray-700 p-2 rounded-lg">configuracion.html<br><span class="text-xs text-gray-400">(Cuenta)</span></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 3: Module Breakdown -->
+        <section class="mb-20">
+            <h2 class="text-3xl font-bold text-center text-orange-400 mb-12">Desglose y Estatus por Módulo</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div class="bg-gray-800 p-6 rounded-xl border border-gray-700 space-y-3">
+                    <h3 class="text-xl font-bold text-white">👤 Autenticación y Cuenta</h3>
+                    <p class="text-sm text-green-400 font-semibold">✓ Estatus: Completo</p>
+                    <p class="text-sm text-gray-300"><span class="font-semibold">Conexión Actual:</span> El nombre de usuario se guarda en `localStorage` para personalizar el saludo.</p>
+                    <p class="text-sm text-gray-300"><span class="font-semibold text-orange-400">Back-End Faltante:</span> Base de datos segura para usuarios, contraseñas encriptadas y gestión de sesiones.</p>
+                </div>
+                 <div class="bg-gray-800 p-6 rounded-xl border border-gray-700 space-y-3">
+                    <h3 class="text-xl font-bold text-white">🗺️ Guía y Preparación</h3>
+                    <p class="text-sm text-green-400 font-semibold">✓ Estatus: Completo</p>
+                    <p class="text-sm text-gray-300"><span class="font-semibold">Conexión Actual:</span> Los resultados del Diagnóstico se guardan en `localStorage` y la Ruta del Exportador los lee para marcar tareas.</p>
+                    <p class="text-sm text-gray-300"><span class="font-semibold text-orange-400">Back-End Faltante:</span> Guardar el progreso de la ruta y los resultados del diagnóstico de forma permanente por usuario.</p>
+                </div>
+                 <div class="bg-gray-800 p-6 rounded-xl border border-gray-700 space-y-3">
+                    <h3 class="text-xl font-bold text-white">📦 Red de Proveedores</h3>
+                    <p class="text-sm text-green-400 font-semibold">✓ Estatus: Completo</p>
+                    <p class="text-sm text-gray-300"><span class="font-semibold">Conexión Actual:</span> Los datos de proveedores están fijos en el HTML. La solicitud de cotización se simula y no se envía.</p>
+                    <p class="text-sm text-gray-300"><span class="font-semibold text-orange-400">Back-End Faltante:</span> Base de datos para proveedores y un sistema que envíe las solicitudes de cotización por email.</p>
+                </div>
+                 <div class="bg-gray-800 p-6 rounded-xl border border-gray-700 space-y-3">
+                    <h3 class="text-xl font-bold text-white">🛒 Marketplace</h3>
+                    <p class="text-sm text-green-400 font-semibold">✓ Estatus: Completo</p>
+                    <p class="text-sm text-gray-300"><span class="font-semibold">Conexión Actual:</span> Los productos están fijos en el HTML. Añadir un producto solo lo muestra temporalmente en la tabla.</p>
+                    <p class="text-sm text-gray-300"><span class="font-semibold text-orange-400">Back-End Faltante:</span> Base de datos para el catálogo de productos y un sistema de mensajería entre comprador y vendedor.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 4: Path to Full App -->
+        <section>
+            <h2 class="text-3xl font-bold text-center text-orange-400 mb-12">El Camino a una App 100% Funcional</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+                <div class="text-center p-6 bg-gray-800 rounded-xl">
+                    <h3 class="font-bold text-xl text-white mb-4">Prototipo Actual</h3>
+                    <div class="p-4 bg-gray-900 rounded-lg border border-dashed border-gray-600">
+                        <p class="font-semibold">Front-End Interactivo</p>
+                        <p class="text-xs text-gray-400">(HTML, CSS, JS)</p>
+                    </div>
+                </div>
+                <div class="text-center p-6 bg-gray-800 rounded-xl">
+                    <h3 class="font-bold text-xl text-white mb-4">Aplicación Completa</h3>
+                    <div class="space-y-2">
+                        <div class="p-4 bg-green-900/50 rounded-lg border border-green-500">
+                            <p class="font-semibold">App Móvil Nativa</p>
+                            <p class="text-xs text-green-300">(iOS/Android)</p>
+                        </div>
+                         <div class="text-2xl">↕️</div>
+                         <div class="p-4 bg-blue-900/50 rounded-lg border border-blue-500">
+                            <p class="font-semibold">Back-End (API)</p>
+                            <p class="text-xs text-blue-300">(Lógica y Conexiones)</p>
+                        </div>
+                         <div class="text-2xl">↕️</div>
+                         <div class="p-4 bg-purple-900/50 rounded-lg border border-purple-500">
+                            <p class="font-semibold">Base de Datos</p>
+                            <p class="text-xs text-purple-300">(Almacenamiento Permanente)</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </div>
+</body>
+</html>

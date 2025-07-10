@@ -1,0 +1,123 @@
+/*
+  XPORTA - Unified Stylesheet (CORRECTED)
+  This file contains all the shared styles for the application,
+  including support for dark and light color themes using CSS variables.
+  The @apply directives have been removed for CDN compatibility.
+*/
+
+/* * Color variable definitions for the default theme (Dark Mode).
+ */
+:root {
+  --color-bg-primary: #111827;      /* gray-900 */
+  --color-bg-secondary: #1F2937;   /* gray-800 */
+  --color-border: #374151;         /* gray-700 */
+  --color-text-primary: #F9FAFB;   /* gray-50 */
+  --color-text-secondary: #9CA3AF; /* gray-400 */
+  --color-text-muted: #6B7280;     /* gray-500 */
+  --color-accent: #F97316;         /* orange-500 */
+  --color-accent-hover: #EA580C;   /* orange-600 */
+  --color-prose-body: #D1D5DB;      /* gray-300 */
+}
+
+/* * Color variable overrides for Light Mode.
+ * When the .light-mode class is applied to the body, these take effect.
+ */
+.light-mode {
+  --color-bg-primary: #ffffff;      /* white */
+  --color-bg-secondary: #f3f4f6;   /* gray-100 */
+  --color-border: #d1d5db;         /* gray-300 */
+  --color-text-primary: #1f2937;   /* gray-800 */
+  --color-text-secondary: #4b5563; /* gray-600 */
+  --color-text-muted: #6b7280;     /* gray-500 */
+  --color-accent: #EA580C;         /* orange-600 */
+  --color-accent-hover: #C2410C;   /* orange-700 */
+  --color-prose-body: #374151;      /* gray-700 */
+}
+
+/* Applying the variables to the body */
+body {
+  font-family: 'Inter', sans-serif;
+  background-color: var(--color-bg-primary);
+  color: var(--color-text-primary);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* * Component classes defined with standard CSS, mimicking Tailwind utilities.
+*/
+.form-input, .form-select, .form-textarea {
+    width: 100%;
+    border-radius: 0.5rem;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+    padding-left: 0.75rem;
+    padding-right: 0.75rem;
+    transition: all 0.2s ease-in-out;
+    background-color: var(--color-bg-secondary);
+    border: 1px solid var(--color-border);
+    color: var(--color-text-primary);
+}
+
+.form-input::placeholder, .form-textarea::placeholder {
+    color: #6B7280; /* gray-500 */
+}
+
+.form-input:focus, .form-select:focus, .form-textarea:focus {
+    outline: 2px solid transparent;
+    outline-offset: 2px;
+    box-shadow: 0 0 0 2px var(--color-accent);
+    border-color: var(--color-accent) !important;
+}
+
+.form-select {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%239ca3af' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='M6 8l4 4 4-4'/%3e%3c/svg%3e");
+    background-position: right 0.5rem center;
+    background-repeat: no-repeat;
+    background-size: 1.5em 1.5em;
+    padding-right: 2.5rem;
+}
+
+.form-radio {
+    height: 1.25rem;
+    width: 1.25rem;
+    border-radius: 9999px;
+    border: 1px solid #6B7280;
+    background-color: #374151;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    transition: all 0.2s ease-in-out;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.form-radio:checked {
+    background-color: var(--color-accent);
+    border-color: var(--color-accent);
+    background-image: url("data:image/svg+xml,%3csvg viewBox='0 0 16 16' fill='white' xmlns='http://www.w3.org/2000/svg'%3e%3ccircle cx='8' cy='8' r='3'/%3e%3c/svg%3e");
+}
+
+.form-radio:focus {
+     outline: 2px solid transparent;
+    outline-offset: 2px;
+    box-shadow: 0 0 0 2px var(--color-accent);
+}
+
+.form-radio-group {
+    background-color: color-mix(in srgb, var(--color-bg-secondary) 50%, transparent);
+    padding: 1rem;
+    border-radius: 0.5rem;
+    border: 1px solid var(--color-border);
+}
+
+/* Override for prose plugin in light mode */
+.light-mode .prose-invert {
+    --tw-prose-body: var(--color-prose-body);
+    --tw-prose-headings: var(--color-text-primary);
+    --tw-prose-lead: var(--color-text-secondary);
+    --tw-prose-bold: var(--color-text-primary);
+    --tw-prose-quotes: var(--color-text-primary);
+    --tw-prose-quote-borders: var(--color-accent);
+}

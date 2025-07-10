@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>XPORTA - Panel de Control</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Link to our main app and dashboard scripts -->
+    <script src="app.js" defer></script>
+    <script src="dashboard.js" defer></script>
+</head>
+<body class="bg-[var(--color-bg-primary)] text-[var(--color-text-primary)] flex flex-col min-h-screen">
+
+    <!-- Header will be injected here by app.js -->
+    <div id="main-header"></div>
+
+    <!-- Main Content -->
+    <main class="container mx-auto p-6 md:p-8 flex-grow">
+        <div class="max-w-4xl mx-auto">
+            <!-- The h2 now has a span with an ID to display the user's name -->
+            <h2 class="text-3xl md:text-4xl font-bold text-[var(--color-text-primary)]">Bienvenido, <span id="user-name" class="text-[var(--color-accent)]"></span></h2>
+            <p class="text-[var(--color-text-secondary)] mt-2">Desde aquí puedes acceder a todas las herramientas para potenciar tu exportación.</p>
+
+            <!-- Quick Summary Card -->
+            <div class="bg-[var(--color-bg-secondary)] border border-orange-500/30 rounded-lg p-6 my-8 flex items-center shadow-lg">
+                <div class="pr-6 flex-shrink-0">
+                    <svg class="w-12 h-12 text-orange-400" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                         <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>
+                </div>
+                <div>
+                    <h3 class="font-bold text-[var(--color-text-primary)] text-lg">Tu perfil está listo.</h3>
+                    <p class="text-[var(--color-text-secondary)]">¡Es hora de explorar los siguientes pasos! Comienza con el diagnóstico para entender tu potencial.</p>
+                </div>
+            </div>
+
+            <!-- Application Modules -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                
+                <!-- Card 1: Ruta del Exportador -->
+                <a href="ruta.html" class="bg-[var(--color-bg-secondary)] border border-[var(--color-border)] rounded-lg p-6 shadow-lg transition-all hover:border-[var(--color-accent)] hover:bg-[color-mix(in_srgb,var(--color-bg-secondary)_50%,transparent)] cursor-pointer group">
+                    <h3 class="text-xl font-bold text-[var(--color-text-primary)] mb-2 group-hover:text-[var(--color-accent)] transition-colors">Ruta del Exportador</h3>
+                    <p class="text-[var(--color-text-secondary)] text-sm">Tu checklist inteligente y personalizado para guiarte paso a paso.</p>
+                </a>
+
+                <!-- Card 2: Diagnóstico Exportador -->
+                <a href="index.html" class="bg-[var(--color-bg-secondary)] border border-[var(--color-border)] rounded-lg p-6 shadow-lg transition-all hover:border-[var(--color-accent)] hover:bg-[color-mix(in_srgb,var(--color-bg-secondary)_50%,transparent)] cursor-pointer group">
+                    <h3 class="text-xl font-bold text-[var(--color-text-primary)] mb-2 group-hover:text-[var(--color-accent)] transition-colors">Diagnóstico Exportador</h3>
+                    <p class="text-[var(--color-text-secondary)] text-sm">Evalúa la preparación de tu empresa para exportar.</p>
+                </a>
+
+                <!-- Card 3: Calculadora de Costos -->
+                <a href="calculadora.html" class="bg-[var(--color-bg-secondary)] border border-[var(--color-border)] rounded-lg p-6 shadow-lg transition-all hover:border-[var(--color-accent)] hover:bg-[color-mix(in_srgb,var(--color-bg-secondary)_50%,transparent)] cursor-pointer group">
+                    <h3 class="text-xl font-bold text-[var(--color-text-primary)] mb-2 group-hover:text-[var(--color-accent)] transition-colors">Calculadora de Costos</h3>
+                    <p class="text-[var(--color-text-secondary)] text-sm">Estima los costos de logística, aranceles y trámites.</p>
+                </a>
+                
+                <!-- Card 4: Red de Proveedores -->
+                <a href="proveedores.html" class="bg-[var(--color-bg-secondary)] border border-[var(--color-border)] rounded-lg p-6 shadow-lg transition-all hover:border-[var(--color-accent)] hover:bg-[color-mix(in_srgb,var(--color-bg-secondary)_50%,transparent)] cursor-pointer group">
+                    <h3 class="text-xl font-bold text-[var(--color-text-primary)] mb-2 group-hover:text-[var(--color-accent)] transition-colors">Red de Proveedores</h3>
+                    <p class="text-[var(--color-text-secondary)] text-sm">Conecta con agentes aduanales y de logística verificados.</p>
+                </a>
+
+                <!-- Card 5: Biblioteca de Conocimiento -->
+                <a href="biblioteca.html" class="bg-[var(--color-bg-secondary)] border border-[var(--color-border)] rounded-lg p-6 shadow-lg transition-all hover:border-[var(--color-accent)] hover:bg-[color-mix(in_srgb,var(--color-bg-secondary)_50%,transparent)] cursor-pointer group">
+                    <h3 class="text-xl font-bold text-[var(--color-text-primary)] mb-2 group-hover:text-[var(--color-accent)] transition-colors">Biblioteca de Conocimiento</h3>
+                    <p class="text-[var(--color-text-secondary)] text-sm">Accede a guías sobre Incoterms, aranceles y más.</p>
+                </a>
+                
+                <!-- Card 6: Configuración de Cuenta -->
+                <a href="configuracion.html" class="bg-[var(--color-bg-secondary)] border border-[var(--color-border)] rounded-lg p-6 shadow-lg transition-all hover:border-[var(--color-accent)] hover:bg-[color-mix(in_srgb,var(--color-bg-secondary)_50%,transparent)] cursor-pointer group">
+                    <h3 class="text-xl font-bold text-[var(--color-text-primary)] mb-2 group-hover:text-[var(--color-accent)] transition-colors">Configuración de Cuenta</h3>
+                    <p class="text-[var(--color-text-secondary)] text-sm">Gestiona tu perfil, contraseña y preferencias.</p>
+                </a>
+
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer will be injected here by app.js -->
+    <div id="main-footer"></div>
+
+</body>
+</html>

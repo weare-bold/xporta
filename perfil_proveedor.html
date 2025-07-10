@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>XPORTA - Perfil de Proveedor</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Link to our main app script -->
+    <script src="app.js" defer></script>
+    <style>
+        .modal-open {
+            overflow: hidden;
+        }
+    </style>
+</head>
+<body class="bg-[var(--color-bg-primary)] text-[var(--color-text-primary)] flex flex-col min-h-screen">
+
+    <!-- Header will be injected here by app.js -->
+    <div id="main-header"></div>
+
+    <!-- Main Content -->
+    <main class="container mx-auto p-6 md:p-8 flex-grow">
+        <div class="max-w-4xl mx-auto">
+            <a href="proveedores.html" class="text-[var(--color-accent)] hover:text-[var(--color-accent-hover)] text-sm inline-flex items-center mb-6">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-1" viewBox="0 0 20 20" fill="currentColor">
+                  <path fill-rule="evenodd" d="M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z" clip-rule="evenodd" />
+                </svg>
+                Volver a la Red de Proveedores
+            </a>
+
+            <!-- Profile Header -->
+            <div class="bg-[var(--color-bg-secondary)] border border-[var(--color-border)] rounded-lg p-6 md:p-8 shadow-lg flex flex-col md:flex-row items-center gap-6 md:gap-8 mb-8">
+                <div class="flex-shrink-0">
+                    <img class="h-24 w-24 rounded-full object-cover border-2 border-gray-600" src="https://placehold.co/100x100/1F2937/E5E7EB?text=ALG" alt="Logo de Aduanas y Logística Global">
+                </div>
+                <div class="flex-grow text-center md:text-left">
+                    <h2 id="provider-name" class="text-2xl md:text-3xl font-bold text-[var(--color-text-primary)]">Aduanas y Logística Global</h2>
+                    <p class="text-[var(--color-text-secondary)]">Agente Aduanal en Ciudad de México</p>
+                    <div class="flex items-center justify-center md:justify-start mt-2">
+                        <span class="text-yellow-400">★★★★☆</span>
+                        <span class="text-xs text-[var(--color-text-muted)] ml-2">(4.5 de 18 reseñas)</span>
+                    </div>
+                </div>
+                <div class="flex-shrink-0 w-full md:w-auto">
+                    <button id="open-quote-modal-btn" class="w-full bg-[var(--color-accent)] text-white font-semibold py-2 px-6 rounded-lg shadow-md hover:bg-[var(--color-accent-hover)] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-[var(--color-bg-secondary)] focus:ring-[var(--color-accent)] transition-colors">
+                        Solicitar Cotización
+                    </button>
+                </div>
+            </div>
+
+            <!-- Profile Body Grid -->
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                <!-- Left Column (Main Info) -->
+                <div class="lg:col-span-2 space-y-8">
+                    <!-- About Section -->
+                    <div class="bg-[var(--color-bg-secondary)] border border-[var(--color-border)] rounded-lg p-6 shadow-lg">
+                        <h3 class="text-xl font-bold text-[var(--color-text-primary)] mb-4">Acerca de nosotros</h3>
+                        <p class="text-[var(--color-text-secondary)]">Con más de 20 años de experiencia, Aduanas y Logística Global es tu socio estratégico para el comercio exterior. Nos especializamos en el despacho aduanero eficiente y transparente, asegurando que tu mercancía cumpla con todas las regulaciones aplicables para una importación y exportación sin contratiempos.</p>
+                    </div>
+
+                    <!-- Services Section -->
+                    <div class="bg-[var(--color-bg-secondary)] border border-[var(--color-border)] rounded-lg p-6 shadow-lg">
+                        <h3 class="text-xl font-bold text-[var(--color-text-primary)] mb-4">Servicios Ofrecidos</h3>
+                        <ul class="space-y-3 text-[var(--color-text-primary)]">
+                            <li class="flex items-center"><svg class="h-5 w-5 text-orange-400 mr-3" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>Despacho Aduanero de Exportación</li>
+                            <li class="flex items-center"><svg class="h-5 w-5 text-orange-400 mr-3" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>Despacho Aduanero de Importación</li>
+                            <li class="flex items-center"><svg class="h-5 w-5 text-orange-400 mr-3" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>Clasificación Arancelaria</li>
+                            <li class="flex items-center"><svg class="h-5 w-5 text-orange-400 mr-3" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>Asesoría en Regulaciones y Restricciones</li>
+                        </ul>
+                    </div>
+
+                     <!-- Reviews Section -->
+                    <div class="bg-[var(--color-bg-secondary)] border border-[var(--color-border)] rounded-lg p-6 shadow-lg">
+                        <h3 class="text-xl font-bold text-[var(--color-text-primary)] mb-4">Reseñas de Usuarios</h3>
+                        <div class="space-y-6">
+                            <!-- Review 1 -->
+                            <div class="border-b border-[var(--color-border)] pb-4">
+                                <div class="flex items-center mb-1">
+                                    <span class="font-semibold text-[var(--color-text-primary)]">Artesanías del Sol</span>
+                                    <span class="text-yellow-400 ml-4">★★★★★</span>
+                                </div>
+                                <p class="text-[var(--color-text-secondary)] text-sm">"Excelente servicio. Nos ayudaron con nuestra primera exportación a Estados Unidos y todo el proceso fue muy claro. ¡Totalmente recomendados!"</p>
+                            </div>
+                            <!-- Review 2 -->
+                            <div class="border-b border-[var(--color-border)] pb-4">
+                                <div class="flex items-center mb-1">
+                                    <span class="font-semibold text-[var(--color-text-primary)]">Salsas "El Picante"</span>
+                                    <span class="text-yellow-400 ml-4">★★★★☆</span>
+                                </div>
+                                <p class="text-[var(--color-text-secondary)] text-sm">"Muy profesionales. Hubo un pequeño retraso en la aduana pero el equipo de ALG lo resolvió rápidamente. Buen servicio en general."</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Column (Contact Info) -->
+                <div class="lg:col-span-1">
+                    <div class="bg-[var(--color-bg-secondary)] border border-[var(--color-border)] rounded-lg p-6 shadow-lg sticky top-28">
+                        <h3 class="text-xl font-bold text-[var(--color-text-primary)] mb-4">Información de Contacto</h3>
+                        <ul class="space-y-3 text-[var(--color-text-primary)] text-sm">
+                            <li class="flex items-start"><svg class="h-5 w-5 text-[var(--color-text-secondary)] mr-3 mt-1 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" /><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" /></svg><span>Av. Reforma 222, Piso 10, Col. Juárez, CDMX, 06600</span></li>
+                            <li class="flex items-center"><svg class="h-5 w-5 text-[var(--color-text-secondary)] mr-3 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" /></svg><span>55 1234 5678</span></li>
+                            <li class="flex items-center"><svg class="h-5 w-5 text-[var(--color-text-secondary)] mr-3 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" /></svg><span>contacto@alglobal.com</span></li>
+                            <li class="flex items-center"><svg class="h-5 w-5 text-[var(--color-text-secondary)] mr-3 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" /></svg><a href="#" class="text-[var(--color-accent)] hover:underline">alglobal.com</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer will be injected here by app.js -->
+    <div id="main-footer"></div>
+
+    <!-- Modals -->
+    <div id="quote-modal" class="fixed inset-0 z-50 items-center justify-center hidden">
+        <div id="modal-backdrop" class="fixed inset-0 bg-gray-900 bg-opacity-75 backdrop-blur-sm transition-opacity"></div>
+        <div class="fixed inset-0 z-10 w-screen overflow-y-auto"><div class="flex min-h-full items-center justify-center p-4 text-center"><div class="relative transform overflow-hidden rounded-lg bg-[var(--color-bg-secondary)] text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-lg border border-[var(--color-border)]"><form id="quote-form"><div class="bg-[var(--color-bg-secondary)] px-4 pb-4 pt-5 sm:p-6 sm:pb-4"><div class="flex justify-between items-start"><h3 class="text-lg font-semibold leading-6 text-[var(--color-text-primary)]" id="modal-title">Solicitar Cotización</h3><button type="button" id="close-modal-btn" class="text-[var(--color-text-secondary)] hover:text-[var(--color-text-primary)]">&times;</button></div><div class="mt-4 space-y-4"><div><label for="quote-subject" class="block text-sm font-medium text-[var(--color-text-secondary)] mb-1">Asunto</label><input type="text" id="quote-subject" name="subject" readonly class="form-input bg-gray-700 cursor-not-allowed"></div><div><label for="quote-name" class="block text-sm font-medium text-[var(--color-text-secondary)] mb-1">Tu Nombre</label><input type="text" id="quote-name" name="name" required class="form-input"></div><div><label for="quote-email" class="block text-sm font-medium text-[var(--color-text-secondary)] mb-1">Tu Correo Electrónico</label><input type="email" id="quote-email" name="email" required class="form-input"></div><div><label for="quote-details" class="block text-sm font-medium text-[var(--color-text-secondary)] mb-1">Detalles de tu envío o consulta</label><textarea id="quote-details" name="details" rows="4" required class="form-textarea"></textarea></div></div></div><div class="bg-[color-mix(in_srgb,var(--color-bg-secondary)_50%,transparent)] px-4 py-3 sm:flex sm:flex-row-reverse sm:px-6 border-t border-[var(--color-border)]/50"><button type="submit" class="inline-flex w-full justify-center rounded-md bg-[var(--color-accent)] px-4 py-2 text-sm font-semibold text-white shadow-sm hover:bg-[var(--color-accent-hover)] sm:ml-3 sm:w-auto transition-colors">Enviar Solicitud</button><button type="button" id="cancel-modal-btn" class="mt-3 inline-flex w-full justify-center rounded-md bg-gray-700 px-4 py-2 text-sm font-semibold text-[var(--color-text-primary)] shadow-sm ring-1 ring-inset ring-gray-600 hover:bg-gray-600 sm:mt-0 sm:w-auto transition-colors">Cancelar</button></div></form></div></div></div>
+    </div>
+    <div id="success-modal" class="fixed inset-0 z-50 items-center justify-center hidden">
+        <div class="fixed inset-0 bg-gray-900 bg-opacity-75 backdrop-blur-sm"></div>
+        <div class="fixed inset-0 z-10 w-screen overflow-y-auto"><div class="flex min-h-full items-center justify-center p-4 text-center"><div class="relative transform overflow-hidden rounded-lg bg-[var(--color-bg-secondary)] text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-md border border-[var(--color-border)]"><div class="bg-[var(--color-bg-secondary)] p-6 text-center"><div class="mx-auto flex h-12 w-12 items-center justify-center rounded-full bg-green-900"><svg class="h-6 w-6 text-green-400" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" /></svg></div><h3 class="mt-4 text-lg font-semibold text-[var(--color-text-primary)]">¡Solicitud Enviada!</h3><p class="mt-2 text-sm text-[var(--color-text-secondary)]">El proveedor ha recibido tu solicitud y se pondrá en contacto contigo pronto.</p><button type="button" id="close-success-modal-btn" class="mt-6 w-full rounded-md bg-[var(--color-accent)] px-4 py-2 text-sm font-semibold text-white shadow-sm hover:bg-[var(--color-accent-hover)] transition-colors">Entendido</button></div></div></div></div>
+    </div>
+
+    <script src="perfil_proveedor.js"></script>
+</body>
+</html>

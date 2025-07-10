@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>XPORTA - Calculadora de Costos</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Link to our main app script -->
+    <script src="app.js" defer></script>
+    <!-- Add Chart.js library -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body class="bg-[var(--color-bg-primary)] text-[var(--color-text-primary)] flex flex-col min-h-screen">
+
+    <!-- Header will be injected here by app.js -->
+    <div id="main-header"></div>
+
+    <!-- Main Content -->
+    <main class="container mx-auto p-6 md:p-8 flex-grow">
+        <div class="max-w-4xl mx-auto">
+            <a href="dashboard.html" class="text-[var(--color-accent)] hover:text-[var(--color-accent-hover)] text-sm inline-flex items-center mb-4">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-1" viewBox="0 0 20 20" fill="currentColor">
+                  <path fill-rule="evenodd" d="M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z" clip-rule="evenodd" />
+                </svg>
+                Volver al Panel de Control
+            </a>
+            <h2 class="text-3xl md:text-4xl font-bold text-[var(--color-text-primary)] text-center">Calculadora de Costos de Exportación</h2>
+            <p class="text-[var(--color-text-secondary)] text-center mt-2 mb-8">Ingresa los datos de tu envío para obtener una estimación de los costos totales.</p>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <!-- Form Column -->
+                <form id="cost-calculator-form" class="space-y-6">
+                    
+                    <fieldset>
+                        <legend class="text-lg font-semibold text-[var(--color-text-primary)] mb-2">1. Información del Producto</legend>
+                        <div class="space-y-4 bg-[var(--color-bg-secondary)] p-4 rounded-lg border border-[var(--color-border)]">
+                            <div>
+                                <label for="product-value" class="block text-xs font-medium text-[var(--color-text-secondary)] mb-1">Valor del producto (por unidad, en MXN)</label>
+                                <input type="number" id="product-value" name="product-value" placeholder="250.00" required class="form-input">
+                            </div>
+                            <div>
+                                <label for="unit-count" class="block text-xs font-medium text-[var(--color-text-secondary)] mb-1">Número de unidades a exportar</label>
+                                <input type="number" id="unit-count" name="unit-count" placeholder="100" required class="form-input">
+                            </div>
+                        </div>
+                    </fieldset>
+
+                    <fieldset>
+                         <legend class="text-lg font-semibold text-[var(--color-text-primary)] mb-2">2. Logística y Transporte</legend>
+                        <div class="space-y-4 bg-[var(--color-bg-secondary)] p-4 rounded-lg border border-[var(--color-border)]">
+                            <div>
+                                <label for="freight-cost" class="block text-xs font-medium text-[var(--color-text-secondary)] mb-1">Costo del flete internacional (MXN)</label>
+                                <input type="number" id="freight-cost" name="freight-cost" placeholder="15000.00" class="form-input">
+                            </div>
+                            <div>
+                                <label for="insurance-cost" class="block text-xs font-medium text-[var(--color-text-secondary)] mb-1">Costo del seguro de carga (MXN)</label>
+                                <input type="number" id="insurance-cost" name="insurance-cost" placeholder="800.00" class="form-input">
+                            </div>
+                        </div>
+                    </fieldset>
+
+                    <fieldset>
+                         <legend class="text-lg font-semibold text-[var(--color-text-primary)] mb-2">3. Trámites y Aranceles</legend>
+                        <div class="space-y-4 bg-[var(--color-bg-secondary)] p-4 rounded-lg border border-[var(--color-border)]">
+                            <div>
+                                <label for="agent-fees" class="block text-xs font-medium text-[var(--color-text-secondary)] mb-1">Gastos del agente aduanal (MXN)</label>
+                                <input type="number" id="agent-fees" name="agent-fees" placeholder="4500.00" class="form-input">
+                            </div>
+                            <div>
+                                <label for="import-tariff" class="block text-xs font-medium text-[var(--color-text-secondary)] mb-1">Arancel de importación en destino (%)</label>
+                                <input type="number" id="import-tariff" name="import-tariff" placeholder="10" class="form-input">
+                            </div>
+                        </div>
+                    </fieldset>
+
+                    <button type="submit" class="w-full bg-[var(--color-accent)] text-white font-semibold py-3 px-8 rounded-lg shadow-md hover:bg-[var(--color-accent-hover)] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-[var(--color-bg-secondary)] focus:ring-[var(--color-accent)] transition-colors text-lg">
+                        Calcular Costos
+                    </button>
+                </form>
+
+                <!-- Results Column -->
+                <div id="results-container" class="bg-[var(--color-bg-secondary)] border border-[var(--color-border)] rounded-lg p-6 shadow-lg sticky top-28">
+                    <h3 class="text-2xl font-bold text-[var(--color-text-primary)] mb-4 text-center">Desglose de Costos</h3>
+                    <div id="results-placeholder" class="text-center text-[var(--color-text-muted)] py-12">
+                        <p>Ingresa los datos para ver el desglose de costos aquí.</p>
+                    </div>
+                    <div id="results-content" class="hidden space-y-6">
+                        <div class="w-full max-w-xs mx-auto">
+                            <canvas id="cost-chart"></canvas>
+                        </div>
+                        <div id="cost-breakdown"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer will be injected here by app.js -->
+    <div id="main-footer"></div>
+
+    <script src="calculadora.js"></script>
+</body>
+</html>

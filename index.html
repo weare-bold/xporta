@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>XPORTA - Diagnóstico de Potencial Exportador</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Link to our main app script -->
+    <script src="app.js" defer></script>
+</head>
+<body class="bg-[var(--color-bg-primary)] text-[var(--color-text-primary)] flex flex-col min-h-screen">
+
+    <!-- Header will be injected here by app.js -->
+    <div id="main-header"></div>
+
+    <!-- Main Content -->
+    <main class="container mx-auto p-6 md:p-8 flex-grow">
+        <div class="max-w-3xl mx-auto">
+            <a href="dashboard.html" class="text-[var(--color-accent)] hover:text-[var(--color-accent-hover)] text-sm inline-flex items-center mb-4">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-1" viewBox="0 0 20 20" fill="currentColor">
+                  <path fill-rule="evenodd" d="M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z" clip-rule="evenodd" />
+                </svg>
+                Volver al Panel de Control
+            </a>
+            <h2 class="text-3xl md:text-4xl font-bold text-[var(--color-text-primary)] text-center">Diagnóstico de Potencial Exportador</h2>
+            <p class="text-[var(--color-text-secondary)] text-center mt-2 mb-8">Responde estas breves preguntas para obtener un análisis de tu preparación para exportar.</p>
+
+            <form id="diagnostic-form" class="bg-[var(--color-bg-secondary)] border border-[var(--color-border)] rounded-lg p-6 md:p-8 shadow-lg space-y-8">
+
+                <!-- Form sections... -->
+                <fieldset class="space-y-6">
+                    <legend class="text-xl font-semibold text-[var(--color-text-primary)] border-b border-orange-500 pb-2 mb-4">Sección 1: Tu Empresa</legend>
+                    <div>
+                        <label for="company-name" class="block text-sm font-medium text-[var(--color-text-secondary)] mb-2">Nombre de tu Empresa o Marca:</label>
+                        <input type="text" id="company-name" name="company-name" placeholder="Ej: Artesanías del Sol S.A. de C.V." class="form-input">
+                    </div>
+                    <div>
+                        <label for="sector" class="block text-sm font-medium text-[var(--color-text-secondary)] mb-2">Sector Principal:</label>
+                        <select id="sector" name="sector" class="form-select">
+                            <option value="">Selecciona un sector...</option>
+                            <option value="alimentos">Alimentos y Bebidas</option>
+                            <option value="artesanias">Artesanías</option>
+                            <option value="textiles">Ropa y Textiles</option>
+                            <option value="tecnologia">Tecnología</option>
+                            <option value="servicios">Servicios</option>
+                            <option value="otro">Otro</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label for="website" class="block text-sm font-medium text-[var(--color-text-secondary)] mb-2">Página Web o Red Social principal (Opcional):</label>
+                        <input type="url" id="website" name="website" placeholder="https://..." class="form-input">
+                    </div>
+                </fieldset>
+                <fieldset class="space-y-6">
+                    <legend class="text-xl font-semibold text-[var(--color-text-primary)] border-b border-orange-500 pb-2 mb-4">Sección 2: Tu Producto</legend>
+                    <div>
+                        <label for="product-name" class="block text-sm font-medium text-[var(--color-text-secondary)] mb-2">Nombre del producto o servicio que quieres exportar:</label>
+                        <input type="text" id="product-name" name="product-name" placeholder="Ej: Salsa de chile habanero" class="form-input">
+                    </div>
+                    <div>
+                        <label for="product-description" class="block text-sm font-medium text-[var(--color-text-secondary)] mb-2">Describe brevemente tu producto/servicio (¿Qué lo hace único?):</label>
+                        <textarea id="product-description" name="product-description" rows="4" placeholder="Receta familiar, ingredientes orgánicos, etc." class="form-textarea"></textarea>
+                    </div>
+                    <div class="form-radio-group">
+                        <label class="block text-sm font-medium text-[var(--color-text-secondary)] mb-2">¿Tu producto ya cuenta con etiqueta y empaque final?</label>
+                        <div class="space-y-2">
+                            <div class="flex items-center"><input type="radio" id="packaging-yes" name="packaging" value="si" class="form-radio"><label for="packaging-yes" class="ml-3 block text-sm text-[var(--color-text-primary)]">Sí</label></div>
+                            <div class="flex items-center"><input type="radio" id="packaging-no" name="packaging" value="no" class="form-radio"><label for="packaging-no" class="ml-3 block text-sm text-[var(--color-text-primary)]">No</label></div>
+                            <div class="flex items-center"><input type="radio" id="packaging-progress" name="packaging" value="en_proceso" class="form-radio"><label for="packaging-progress" class="ml-3 block text-sm text-[var(--color-text-primary)]">Está en proceso</label></div>
+                            <div class="flex items-center"><input type="radio" id="packaging-na" name="packaging" value="no_aplica" class="form-radio"><label for="packaging-na" class="ml-3 block text-sm text-[var(--color-text-primary)]">No aplica (es un servicio)</label></div>
+                        </div>
+                    </div>
+                </fieldset>
+                <fieldset class="space-y-6">
+                    <legend class="text-xl font-semibold text-[var(--color-text-primary)] border-b border-orange-500 pb-2 mb-4">Sección 3: Tu Preparación</legend>
+                    <div class="form-radio-group">
+                        <label class="block text-sm font-medium text-[var(--color-text-secondary)] mb-2">¿Tu empresa está dada de alta en el SAT (cuenta con RFC)?</label>
+                        <div class="space-y-2">
+                            <div class="flex items-center"><input type="radio" id="rfc-yes" name="rfc" value="si" class="form-radio"><label for="rfc-yes" class="ml-3 block text-sm text-[var(--color-text-primary)]">Sí</label></div>
+                            <div class="flex items-center"><input type="radio" id="rfc-no" name="rfc" value="no" class="form-radio"><label for="rfc-no" class="ml-3 block text-sm text-[var(--color-text-primary)]">No</label></div>
+                            <div class="flex items-center"><input type="radio" id="rfc-notsure" name="rfc" value="no_seguro" class="form-radio"><label for="rfc-notsure" class="ml-3 block text-sm text-[var(--color-text-primary)]">No estoy seguro</label></div>
+                        </div>
+                    </div>
+                    <div class="form-radio-group">
+                        <label class="block text-sm font-medium text-[var(--color-text-secondary)] mb-2">¿Conoces la fracción arancelaria de tu producto?</label>
+                        <div class="space-y-2">
+                            <div class="flex items-center"><input type="radio" id="tariff-yes" name="tariff" value="si" class="form-radio"><label for="tariff-yes" class="ml-3 block text-sm text-[var(--color-text-primary)]">Sí</label></div>
+                            <div class="flex items-center"><input type="radio" id="tariff-no" name="tariff" value="no" class="form-radio"><label for="tariff-no" class="ml-3 block text-sm text-[var(--color-text-primary)]">No</label></div>
+                            <div class="flex items-center"><input type="radio" id="tariff-help" name="tariff" value="necesito_ayuda" class="form-radio"><label for="tariff-help" class="ml-3 block text-sm text-[var(--color-text-primary)]">Necesito ayuda con esto</label></div>
+                        </div>
+                    </div>
+                    <div class="form-radio-group">
+                        <label class="block text-sm font-medium text-[var(--color-text-secondary)] mb-2">¿Tienes la capacidad de aumentar tu producción para un pedido internacional?</label>
+                        <div class="space-y-2">
+                            <div class="flex items-center"><input type="radio" id="production-yes" name="production" value="si_facilmente" class="form-radio"><label for="production-yes" class="ml-3 block text-sm text-[var(--color-text-primary)]">Sí, fácilmente</label></div>
+                            <div class="flex items-center"><input type="radio" id="production-investment" name="production" value="con_inversion" class="form-radio"><label for="production-investment" class="ml-3 block text-sm text-[var(--color-text-primary)]">Sí, con algo de inversión</label></div>
+                            <div class="flex items-center"><input type="radio" id="production-no" name="production" value="no_por_ahora" class="form-radio"><label for="production-no" class="ml-3 block text-sm text-[var(--color-text-primary)]">No por ahora</label></div>
+                        </div>
+                    </div>
+                </fieldset>
+                <div class="pt-4 text-center">
+                    <button type="submit" class="w-full md:w-auto bg-[var(--color-accent)] text-white font-semibold py-3 px-8 rounded-lg shadow-md hover:bg-[var(--color-accent-hover)] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-[var(--color-bg-secondary)] focus:ring-[var(--color-accent)] transition-colors text-lg">
+                        Generar mi Diagnóstico de Exportación
+                    </button>
+                </div>
+            </form>
+            
+            <!-- Results Section -->
+            <div id="results-section" class="hidden mt-10 bg-[var(--color-bg-secondary)] border border-[var(--color-border)] rounded-lg p-6 md:p-8 shadow-lg">
+                <h3 class="text-2xl font-bold text-[var(--color-text-primary)] mb-6 text-center">Resultados de tu Diagnóstico</h3>
+                <div id="score-meter-container" class="mb-8"></div>
+                <div id="results-content" class="space-y-4 text-[var(--color-text-primary)]"></div>
+            </div>
+
+        </div>
+    </main>
+
+    <!-- Footer will be injected here by app.js -->
+    <div id="main-footer"></div>
+
+    <script src="script.js"></script>
+</body>
+</html>

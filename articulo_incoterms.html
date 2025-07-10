@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>XPORTA - ¿Qué son los Incoterms?</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Link to our main app script -->
+    <script src="app.js" defer></script>
+</head>
+<body class="bg-gray-900 text-gray-200 flex flex-col min-h-screen">
+
+    <!-- Header will be injected here by app.js -->
+    <div id="main-header"></div>
+
+    <!-- Main Content -->
+    <main class="container mx-auto p-6 md:p-8 flex-grow">
+        <div class="max-w-3xl mx-auto">
+            <a href="biblioteca.html" class="text-orange-500 hover:text-orange-400 text-sm inline-flex items-center mb-6">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-1" viewBox="0 0 20 20" fill="currentColor">
+                  <path fill-rule="evenodd" d="M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z" clip-rule="evenodd" />
+                </svg>
+                Volver a la Biblioteca
+            </a>
+            
+            <article class="prose prose-invert prose-lg max-w-none prose-h1:text-orange-400 prose-h1:font-bold prose-a:text-orange-400 hover:prose-a:text-orange-300">
+                <h1>¿Qué son los Incoterms?</h1>
+                
+                <p class="lead">Los Incoterms son un conjunto de reglas internacionales, publicadas por la Cámara de Comercio Internacional (CCI), que definen las responsabilidades del vendedor y del comprador en el intercambio de mercancías.</p>
+                
+                <p>Imagina que vendes tu mole a alguien en España. ¿Quién es responsable de pagar el transporte? ¿Quién asume el riesgo si la mercancía se daña en el camino? ¿En qué punto exacto la responsabilidad pasa de ti (vendedor) a tu cliente (comprador)? Los Incoterms responden a todas estas preguntas.</p>
+                
+                <h2>¿Por qué son tan importantes?</h2>
+                <p>Usar un Incoterm en tu contrato de compraventa evita malentendidos, disputas y costos inesperados. Proporcionan un lenguaje común para todos los involucrados en el comercio internacional.</p>
+                <ul>
+                    <li><strong>Claridad:</strong> Definen claramente los costos, riesgos y obligaciones de cada parte.</li>
+                    <li><strong>Seguridad:</strong> Reducen la incertidumbre legal y comercial.</li>
+                    <li><strong>Eficiencia:</strong> Facilitan la negociación y agilizan el proceso de envío.</li>
+                </ul>
+
+                <h2>Ejemplos de Incoterms Comunes</h2>
+                <p>Existen 11 Incoterms, pero aquí te explicamos tres de los más utilizados, de menor a mayor responsabilidad para ti como vendedor:</p>
+                
+                <div class="overflow-x-auto bg-gray-800/50 rounded-lg border border-gray-700 mt-6">
+                    <table class="w-full">
+                        <thead class="text-left">
+                            <tr>
+                                <th class="p-4 font-semibold">Incoterm</th>
+                                <th class="p-4 font-semibold">Tu principal responsabilidad como Vendedor</th>
+                            </tr>
+                        </thead>
+                        <tbody class="divide-y divide-gray-700">
+                            <tr class="hover:bg-gray-700/50">
+                                <td class="p-4 font-bold">EXW (Ex Works / En Fábrica)</td>
+                                <td class="p-4">Tu única responsabilidad es tener la mercancía lista y empacada en tu local (tu taller de mole en Oaxaca). El comprador se encarga de TODO lo demás: recogerla, subirla al camión, el transporte, la aduana, etc.</td>
+                            </tr>
+                            <tr class="hover:bg-gray-700/50">
+                                <td class="p-4 font-bold">FOB (Free On Board / Franco a Bordo)</td>
+                                <td class="p-4">Tu responsabilidad termina cuando la mercancía está cargada a bordo del barco (o avión) que el comprador eligió en el puerto de salida (ej. Veracruz). A partir de ese momento, el comprador asume todos los costos y riesgos.</td>
+                            </tr>
+                            <tr class="hover:bg-gray-700/50">
+                                <td class="p-4 font-bold">DDP (Delivered Duty Paid / Entregado con Derechos Pagados)</td>
+                                <td class="p-4">Este es el de máxima responsabilidad para ti. Te encargas de TODO: transporte, seguro, aduanas de exportación e importación, y de entregar la mercancía en la puerta del comprador en España, con todos los impuestos pagados.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <h2 class="mt-8">¿Cuál debes elegir?</h2>
+                <p>La elección depende de tu capacidad, tu experiencia y la negociación con tu comprador. Si estás empezando, un Incoterm como EXW o FOB puede ser más sencillo. Si quieres ofrecer un servicio completo y tener más control, un DDP puede ser una buena opción, pero requiere más conocimiento y gestión.</p>
+                
+                <blockquote>
+                    <p>Recuerda: El Incoterm que elijas afectará directamente el precio final de tu producto. ¡Utiliza nuestra Calculadora de Costos para planificarlo!</p>
+                </blockquote>
+
+            </article>
+        </div>
+    </main>
+
+    <!-- Footer will be injected here by app.js -->
+    <div id="main-footer"></div>
+    
+    <!-- Script for Tailwind Prose plugin -->
+    <script src="https://cdn.tailwindcss.com/3.3.0?plugins=typography"></script>
+</body>
+</html>

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>XPORTA - ¿Cómo encontrar tu Fracción Arancelaria?</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Link to our main app script -->
+    <script src="app.js" defer></script>
+</head>
+<body class="bg-[var(--color-bg-primary)] text-[var(--color-text-primary)] flex flex-col min-h-screen">
+
+    <!-- Header will be injected here by app.js -->
+    <div id="main-header"></div>
+
+    <!-- Main Content -->
+    <main class="container mx-auto p-6 md:p-8 flex-grow">
+        <div class="max-w-3xl mx-auto">
+            <a href="biblioteca.html" class="text-[var(--color-accent)] hover:text-[var(--color-accent-hover)] text-sm inline-flex items-center mb-6">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-1" viewBox="0 0 20 20" fill="currentColor">
+                  <path fill-rule="evenodd" d="M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z" clip-rule="evenodd" />
+                </svg>
+                Volver a la Biblioteca
+            </a>
+            
+            <article class="prose prose-invert prose-lg max-w-none prose-h1:text-[var(--color-accent)] prose-h1:font-bold prose-a:text-[var(--color-accent)] hover:prose-a:text-[var(--color-accent-hover)]">
+                <h1>Guía Práctica: ¿Cómo encontrar tu Fracción Arancelaria?</h1>
+                
+                <p class="lead">La fracción arancelaria es un código numérico de 8 dígitos que se asigna a todas las mercancías que se importan o exportan. Piensa en él como el "CURP" de tu producto; es un identificador único a nivel mundial.</p>
+                
+                <p>Este código es la clave para todo el proceso de exportación. Determina los impuestos (aranceles) que debes pagar, las regulaciones que debes cumplir (permisos, certificados sanitarios, etc.) y si tu producto puede beneficiarse de algún tratado de libre comercio.</p>
+                
+                <h2>¿Por qué es tan importante?</h2>
+                <ul>
+                    <li><strong>Impuestos:</strong> Define el porcentaje de arancel que tu comprador deberá pagar al recibir el producto.</li>
+                    <li><strong>Regulaciones:</strong> Indica si tu producto necesita permisos especiales (de salud, seguridad, etc.) para entrar a otro país.</li>
+                    <li><strong>Tratados de Libre Comercio:</strong> Es indispensable para demostrar que tu producto es mexicano y así poder aplicar a una reducción o eliminación de aranceles bajo acuerdos como el T-MEC (con EE.UU. y Canadá) o el TLCUEM (con la Unión Europea).</li>
+                </ul>
+                <p>Clasificar incorrectamente tu producto puede resultar en multas, retrasos en la aduana o el rechazo de la mercancía. ¡Es un paso que debes tomar con seriedad!</p>
+
+                <h2>Pasos para encontrar tu Fracción Arancelaria</h2>
+                <p>El sistema de clasificación se basa en la Tarifa de la Ley de los Impuestos Generales de Importación y de Exportación (TIGIE). Aquí te damos un método simplificado para empezar:</p>
+                
+                <ol>
+                    <li><strong>Describe tu producto a detalle:</strong> ¿Qué es? (Ej: "Salsa picante a base de chile habanero"). ¿De qué está hecho? (Ingredientes principales). ¿Para qué se usa? (Consumo humano, condimento).</li>
+                    <li><strong>Utiliza herramientas en línea:</strong> El SAT y otros organismos ofrecen herramientas para buscar fracciones arancelarias. Una de las más importantes es la página del <a href="http://www.siicex.gob.mx/portalSiicex/" target="_blank" rel="noopener noreferrer">SNICE</a>.</li>
+                    <li><strong>Consulta a un experto:</strong> La forma más segura y recomendada es consultar a un <strong>Agente Aduanal</strong>. Ellos son los expertos en clasificación arancelaria. Puedes proporcionarles la descripción detallada de tu producto y ellos realizarán la clasificación correcta por ti.</li>
+                </ol>
+
+                <blockquote>
+                    <p>En XPORTA, puedes conectar con agentes aduanales verificados a través de nuestra <a href="proveedores.html">Red de Proveedores</a>. Ellos te darán la certeza que necesitas.</p>
+                </blockquote>
+
+                <h2 class="mt-8">Ejemplo práctico</h2>
+                <p>Imaginemos nuestro "Mole Negro Oaxaqueño". Un agente aduanal podría clasificarlo en la fracción <strong>2103.90.99</strong>, que corresponde a "Las demás preparaciones para salsas y salsas preparadas; condimentos y sazonadores, compuestos". Con este código, ya puedes investigar los aranceles y regulaciones específicas en España.</p>
+
+            </article>
+        </div>
+    </main>
+
+    <!-- Footer will be injected here by app.js -->
+    <div id="main-footer"></div>
+    
+    <!-- Script for Tailwind Prose plugin -->
+    <script src="https://cdn.tailwindcss.com/3.3.0?plugins=typography"></script>
+</body>
+</html>
