@@ -1,5 +1,9 @@
 # Xporta
 
+<p align="center" style="margin-top: 1rem; color: #A0A0A0; font-style: italic;">
+Un proyecto diseñado y prototipado por <a href="#" style="color: #00FFFF; text-decoration: none;">BOLD creative agency</a>
+</p>
+
 XPORTA - Prototipo Funcional
 XPORTA es la plataforma digital integral diseñada para simplificar y potenciar la exportación para las empresas mexicanas, guiándolas paso a paso y conectándolas con los recursos necesarios.
 
